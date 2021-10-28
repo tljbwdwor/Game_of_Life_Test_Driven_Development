@@ -25,6 +25,12 @@ public class GameBoard {
     }
 
     public int get_cell_state(int x_axis, int y_axis) {
+        if ((x_axis < 0) || (x_axis >= x_axis)) {
+            return 0;
+        }
+        if ((y_axis < 0) || (y_axis >= y_axis)) {
+            return 0;
+        } else
         return this.cell[x_axis][y_axis];
     }
 
