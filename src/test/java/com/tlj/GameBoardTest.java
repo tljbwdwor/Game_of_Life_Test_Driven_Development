@@ -32,4 +32,11 @@ public class GameBoardTest {
     public void cellStateShouldbeSetToDeadOr0() {
         assertEquals(0,gameBoard.get_cell_state(2,2));
     }
+
+    @Test
+    public void cellStateShouldBeChangedBySetMethod() {
+        assertEquals(0,gameBoard.get_cell_state(2,2));
+        gameBoard.set_cell_state(2,2,1);
+        assertEquals(1,gameBoard.get_cell_state(2,2));
+    }
 }
