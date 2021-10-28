@@ -65,4 +65,9 @@ public class GameBoard {
             }
         }
     }
+
+    public int count_living_neighbours(int x, int y) {
+        int output = 0;
+        return output;
+    }
 }
