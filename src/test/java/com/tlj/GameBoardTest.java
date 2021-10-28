@@ -27,4 +27,9 @@ public class GameBoardTest {
         GameBoard gameBoard = new GameBoard(3,1);
         assertEquals("|...|", gameBoard.print_board_in_console());
     }
+
+    @Test
+    public void cellStateShouldbeSetToDeadOr0() {
+        assertEquals(0,gameBoard.get_cell_state(2,2));
+    }
 }
