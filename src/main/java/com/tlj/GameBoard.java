@@ -105,4 +105,20 @@ public class GameBoard {
         }
         this.cell = newGeneration;
     }
+
+    public static void main(String[] args) {
+        GameBoard gameBoard = new GameBoard(5,5);
+        int numberOfGenerations = 5;
+        gameBoard.set_cell_state_to_alive(2,1);
+        gameBoard.set_cell_state_to_alive(2,2);
+        gameBoard.set_cell_state_to_alive(2,3);
+
+        for (int i = 0; i < numberOfGenerations; i++) {
+            System.out.println("GENERATION " + (i+1));
+            gameBoard.print_board_in_console();
+            System.out.println("---");
+            gameBoard.evolve();
+        }
+
+    }
 }
