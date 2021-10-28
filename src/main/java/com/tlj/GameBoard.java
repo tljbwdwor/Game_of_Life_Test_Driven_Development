@@ -23,4 +23,8 @@ public class GameBoard {
         }
         return output;
     }
+
+    public int get_cell_state(int x_axis, int y_axis) {
+        return 0;
+    }
 }
