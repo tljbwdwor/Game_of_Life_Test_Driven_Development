@@ -1,31 +1,34 @@
 package com.tlj;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
-import java.awt.*;
-
 public class JavaFxSceneBuilder extends VBox {
 
-    private Button evolveButton;
+    private Button generationButton;
     private Button clearButton;
-
     private Canvas canvas;
-
     private GameBoard gameBoard;
 
     public JavaFxSceneBuilder() {
 
-        evolveButton = new Button("Evolve");
-        evolveButton.setStyle("-fx-background-color: #9af086");
-        this.evolveButton.setOnAction(actionEvent -> {
+        generationButton = new Button("Evolve!");
+        generationButton.setStyle("-fx-background-color: #9af086; ");
+        this.generationButton.setOnAction(actionEvent -> {
             gameBoard.evolve();
         });
 
-        clearButton = new Button("Clear Board");
-        clearButton.setStyle("-fx-background-color: #ff524f");
+        clearButton = new Button("Extinction!");
+        clearButton.setStyle("-fx-background-color: #ff524f; ");
         this.clearButton.setOnAction(actionEvent -> {
             gameBoard.clear_board();
         });
+
+        this.canvas = new Canvas(600, 600);
+
+        this.getChildren().addAll(this.generationButton, this.clearButton, this.canvas);
+
+        this.gameBoard = new GameBoard(40,40);
     }
 }
