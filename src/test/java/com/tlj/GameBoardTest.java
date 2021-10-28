@@ -154,4 +154,19 @@ public class GameBoardTest {
         gameBoard.evolve();
         assertEquals(1,gameBoard.get_cell_state(2,2));
     }
+
+    @Test
+    public void deadCellShouldRemainDeadIfFewerThan3LiveNeighbours() {
+        gameBoard.set_cell_state_to_dead(1,1);
+        gameBoard.set_cell_state_to_dead(1,2);
+        gameBoard.set_cell_state_to_dead(1,3);
+        gameBoard.set_cell_state_to_alive(2,1);
+        gameBoard.set_cell_state_to_dead(2,2);
+        gameBoard.set_cell_state_to_alive(2,3);
+        gameBoard.set_cell_state_to_dead(3,1);
+        gameBoard.set_cell_state_to_dead(3,2);
+        gameBoard.set_cell_state_to_dead(3,3);
+        gameBoard.evolve();
+        assertEquals(0,gameBoard.get_cell_state(2,2));
+    }
 }
