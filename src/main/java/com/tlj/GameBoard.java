@@ -82,4 +82,15 @@ public class GameBoard {
 
         return output;
     }
+
+    public void evolve() {
+        for (int y = 0; y < y_axis; y++) {
+            for (int x = 0; x < x_axis; x++) {
+                int livingNeighbours = count_living_neighbours(x,y);
+                if (livingNeighbours < 2) {
+                    set_cell_state_to_dead(x,y);
+                }
+            }
+        }
+    }
 }
