@@ -49,4 +49,8 @@ public class GameBoard {
         }
         this.cell[x][y] = cellState;
     }
+
+    public void set_cell_state_to_dead(int x, int y) {
+        set_cell_state(x, y, 0);
+    }
 }
