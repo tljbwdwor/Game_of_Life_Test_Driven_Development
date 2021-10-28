@@ -44,4 +44,10 @@ public class GameBoardTest {
     public void outOfBoundsCellShouldDefaultToDeadOr0() {
         assertEquals(0,gameBoard.get_cell_state(10,10));
     }
+
+    @Test
+    public void outOfBoundsCellShouldNotBeAbleToBeSetToAliveOr1() {
+        gameBoard.set_cell_state(10,10,1);
+        assertEquals(0,gameBoard.get_cell_state(10,10));
+    }
 }
