@@ -72,4 +72,18 @@ public class GameBoardTest {
         gameBoard.set_cell_state_to_alive(2,2);
         assertEquals(1,gameBoard.get_cell_state(2,2));
     }
+
+    @Test
+    public void clearBoardShouldResultInAllCellsRevertingToDead() {
+        gameBoard.set_cell_state_to_alive(2,2);
+        gameBoard.set_cell_state_to_alive(2,3);
+        gameBoard.set_cell_state_to_alive(2,4);
+        assertEquals(1,gameBoard.get_cell_state(2,2));
+        assertEquals(1,gameBoard.get_cell_state(2,3));
+        assertEquals(1,gameBoard.get_cell_state(2,4));
+        gameBoard.clearBoard();
+        assertEquals(0,gameBoard.get_cell_state(2,2));
+        assertEquals(0,gameBoard.get_cell_state(2,3));
+        assertEquals(0,gameBoard.get_cell_state(2,4));
+    }
 }
