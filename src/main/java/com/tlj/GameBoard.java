@@ -24,17 +24,23 @@ public class GameBoard {
         return output;
     }
 
-    public int get_cell_state(int x_axis, int y_axis) {
-        if ((x_axis < 0) || (x_axis >= x_axis)) {
+    public int get_cell_state(int x, int y) {
+        if ((x < 0) || (x >= x_axis)) {
             return 0;
         }
-        if ((y_axis < 0) || (y_axis >= y_axis)) {
+        if ((y < 0) || (y >= y_axis)) {
             return 0;
         } else
-        return this.cell[x_axis][y_axis];
+        return this.cell[x][y];
     }
 
-    public void set_cell_state(int x_axis, int y_axis, int cellState) {
-        this.cell[x_axis][y_axis] = cellState;
+    public void set_cell_state(int x, int y, int cellState) {
+        if ((x < 0) || (x >= x_axis)) {
+            return;
+        }
+        if ((y < 0) || (y >= y_axis)) {
+            return;
+        }
+        this.cell[x][y] = cellState;
     }
 }
