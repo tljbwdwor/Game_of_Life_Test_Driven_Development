@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GameBoardTest {
 
+    GameBoard gameBoard = new GameBoard(5,8);
+
     @Test
-    void createdGameBoardShouldNotReturnNull() {
+    public void createdGameBoardShouldNotReturnNull() {
         assertNotNull(gameBoard);
     }
 }
