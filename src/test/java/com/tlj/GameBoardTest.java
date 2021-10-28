@@ -56,4 +56,12 @@ public class GameBoardTest {
         gameBoard2.set_cell_state(1,0,1);
         assertEquals("|.*.|",gameBoard2.print_board_in_console());
     }
+
+    @Test
+    public void methodShouldExistForSettingStatusToDeadOr0() {
+        gameBoard.set_cell_state(2,2,1);
+        assertEquals(1,gameBoard.get_cell_state(2,2));
+        gameBoard.set_cell_state_to_dead(2,2);
+        assertEquals(0,gameBoard.get_cell_state(2,2));
+    }
 }
