@@ -10,4 +10,17 @@ public class GameBoard {
         this.y_axis = y_axis;
         this.size = new int[x_axis][y_axis];
     }
+
+    public String print_board_in_console() {
+        String output = "";
+        for (int y = 0; y < y_axis; y++) {
+            StringBuilder board = new StringBuilder("|");
+            for (int x = 0; x < x_axis; x++) {
+                board.append(".");
+            }
+            board.append("|");
+            output = board.toString();
+        }
+        return output;
+    }
 }

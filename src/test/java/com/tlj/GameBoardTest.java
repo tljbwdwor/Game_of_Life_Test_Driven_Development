@@ -25,6 +25,6 @@ public class GameBoardTest {
     @Test
     public void gameBoardShouldPrintInConsoleAsExpected() {
         GameBoard gameBoard = new GameBoard(3,1);
-        assertEquals("|...|", gameBoard.printInConsole);
+        assertEquals("|...|", gameBoard.print_board_in_console());
     }
 }
