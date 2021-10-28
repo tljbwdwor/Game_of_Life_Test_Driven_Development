@@ -21,4 +21,10 @@ public class GameBoardTest {
     public void createdGameBoardShouldReturnCorrectYValue() {
         assertEquals(8,gameBoard.y_axis);
     }
+
+    @Test
+    public void gameBoardShouldPrintInConsoleAsExpected() {
+        GameBoard gameBoard = new GameBoard(3,1);
+        assertEquals("|...|", gameBoard.printInConsole);
+    }
 }
