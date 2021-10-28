@@ -93,7 +93,8 @@ public class GameBoard {
                 if (this.cell[x][y] == 1) {
                     if ((livingNeighbours < 2) || (livingNeighbours > 3)) {
                         newGeneration[x][y] = 0;
-                    }
+                    }else
+                        newGeneration[x][y] = 1;
                 }
             }
         }
