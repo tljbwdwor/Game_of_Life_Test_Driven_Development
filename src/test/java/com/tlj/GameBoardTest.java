@@ -64,4 +64,12 @@ public class GameBoardTest {
         gameBoard.set_cell_state_to_dead(2,2);
         assertEquals(0,gameBoard.get_cell_state(2,2));
     }
+
+    @Test
+    public void methodShouldExistForSettingStatusToAliveOr1() {
+        gameBoard.set_cell_state(2,2,0);
+        assertEquals(0,gameBoard.get_cell_state(2,2));
+        gameBoard.set_cell_state_to_alive(2,2);
+        assertEquals(1,gameBoard.get_cell_state(2,2));
+    }
 }
