@@ -84,13 +84,19 @@ public class GameBoard {
     }
 
     public void evolve() {
+        int[][] newGeneration = new int[x_axis][y_axis];
+
         for (int y = 0; y < y_axis; y++) {
             for (int x = 0; x < x_axis; x++) {
                 int livingNeighbours = count_living_neighbours(x,y);
-                if (livingNeighbours < 2) {
-                    set_cell_state_to_dead(x,y);
+
+                if (this.cell[x][y] == 1) {
+                    if ((livingNeighbours < 2) || (livingNeighbours > 3)) {
+                        newGeneration[x][y] = 0;
+                    }
                 }
             }
         }
+        this.cell = newGeneration;
     }
 }
