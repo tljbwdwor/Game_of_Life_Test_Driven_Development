@@ -96,6 +96,10 @@ public class GameBoard {
                         newGeneration[x][y] = 0;
                     }else
                         newGeneration[x][y] = 1;
+                } else {
+                    if (livingNeighbours == 3) {
+                        newGeneration[x][y] = 1;
+                    }
                 }
             }
         }
