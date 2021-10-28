@@ -11,4 +11,14 @@ public class GameBoardTest {
     public void createdGameBoardShouldNotReturnNull() {
         assertNotNull(gameBoard);
     }
+
+    @Test
+    public void createdGameBoardShouldReturnCorrectXValue() {
+        assertEquals(5,gameBoard.x_axis);
+    }
+
+    @Test
+    public void createdGameBoardShouldReturnCorrectYValue() {
+        assertEquals(8,gameBoard.y_axis);
+    }
 }
