@@ -50,4 +50,11 @@ public class GameBoardTest {
         gameBoard.set_cell_state(10,10,1);
         assertEquals(0,gameBoard.get_cell_state(10,10));
     }
+
+    @Test
+    public void printBoardInConsoleMethodShouldHandleLiveAndDeadCellsGraphically() {
+        GameBoard gameBoard = new GameBoard(3,1);
+        gameBoard.set_cell_state(2,1,1);
+        assertEquals("|.*.|",gameBoard.print_board_in_console());
+    }
 }
