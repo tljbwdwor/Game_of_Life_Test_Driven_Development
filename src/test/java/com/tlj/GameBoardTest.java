@@ -81,7 +81,7 @@ public class GameBoardTest {
         assertEquals(1,gameBoard.get_cell_state(2,2));
         assertEquals(1,gameBoard.get_cell_state(2,3));
         assertEquals(1,gameBoard.get_cell_state(2,4));
-        gameBoard.clearBoard();
+        gameBoard.clear_board();
         assertEquals(0,gameBoard.get_cell_state(2,2));
         assertEquals(0,gameBoard.get_cell_state(2,3));
         assertEquals(0,gameBoard.get_cell_state(2,4));

@@ -57,4 +57,12 @@ public class GameBoard {
     public void set_cell_state_to_alive(int x, int y) {
         set_cell_state(x, y, 1);
     }
+
+    public void clear_board() {
+        for (int y = 0; y < y_axis; y++) {
+            for (int x = 0; x < x_axis; x++) {
+                set_cell_state_to_dead(x,y);
+            }
+        }
+    }
 }
