@@ -86,4 +86,12 @@ public class GameBoardTest {
         assertEquals(0,gameBoard.get_cell_state(2,3));
         assertEquals(0,gameBoard.get_cell_state(2,4));
     }
+
+    @Test
+    public void livingNeighbourCountShouldReturnCorrectNumber() {
+        gameBoard.set_cell_state_to_alive(2,2);
+        gameBoard.set_cell_state_to_alive(2,3);
+        gameBoard.set_cell_state_to_alive(2,4);
+        assertEquals(3,gameBoard.count_living_neighbours(3,3));
+    }
 }
