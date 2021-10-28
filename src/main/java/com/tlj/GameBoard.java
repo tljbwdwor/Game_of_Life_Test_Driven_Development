@@ -68,6 +68,18 @@ public class GameBoard {
 
     public int count_living_neighbours(int x, int y) {
         int output = 0;
+
+        output += get_cell_state(x-1, y-1);
+        output += get_cell_state(x, y-1);
+        output += get_cell_state(x+1, y-1);
+
+        output += get_cell_state(x-1, y);
+        output += get_cell_state(x+1, y);
+
+        output += get_cell_state(x-1, y+1);
+        output += get_cell_state(x, y+1);
+        output += get_cell_state(x+1, y+1);
+
         return output;
     }
 }
