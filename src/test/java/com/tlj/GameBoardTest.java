@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameBoardTest {
 
     GameBoard gameBoard = new GameBoard(5,8);
+    GameBoard gameBoard2 = new GameBoard(3,1);
 
     @Test
     public void createdGameBoardShouldNotReturnNull() {
@@ -24,8 +25,7 @@ public class GameBoardTest {
 
     @Test
     public void gameBoardShouldPrintInConsoleAsExpected() {
-        GameBoard gameBoard = new GameBoard(3,1);
-        assertEquals("|...|", gameBoard.print_board_in_console());
+        assertEquals("|...|", gameBoard2.print_board_in_console());
     }
 
     @Test
@@ -36,8 +36,8 @@ public class GameBoardTest {
     @Test
     public void cellStateShouldBeChangedBySetMethod() {
         assertEquals(0,gameBoard.get_cell_state(2,2));
-        gameBoard.set_cell_state(2,2,1);
-        assertEquals(1,gameBoard.get_cell_state(2,2));
+        gameBoard.set_cell_state(1,1,1);
+        assertEquals(1,gameBoard.get_cell_state(1,1));
     }
 
     @Test
@@ -53,8 +53,7 @@ public class GameBoardTest {
 
     @Test
     public void printBoardInConsoleMethodShouldHandleLiveAndDeadCellsGraphically() {
-        GameBoard gameBoard = new GameBoard(3,1);
-        gameBoard.set_cell_state(2,1,1);
-        assertEquals("|.*.|",gameBoard.print_board_in_console());
+        gameBoard2.set_cell_state(1,0,1);
+        assertEquals("|.*.|",gameBoard2.print_board_in_console());
     }
 }

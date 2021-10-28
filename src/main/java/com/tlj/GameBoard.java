@@ -16,9 +16,15 @@ public class GameBoard {
         for (int y = 0; y < y_axis; y++) {
             StringBuilder board = new StringBuilder("|");
             for (int x = 0; x < x_axis; x++) {
-                board.append(".");
+                if (this.cell[x][y] == 0) {
+                    board.append(".");
+                } else {
+                    board.append("*");
+                }
             }
             board.append("|");
+            System.out.print(board);
+            System.out.print("\n");
             output = board.toString();
         }
         return output;
@@ -30,7 +36,7 @@ public class GameBoard {
         }
         if ((y < 0) || (y >= y_axis)) {
             return 0;
-        } else
+        }
         return this.cell[x][y];
     }
 
