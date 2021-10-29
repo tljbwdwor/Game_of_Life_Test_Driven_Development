@@ -242,4 +242,10 @@ public class GameBoardTest {
     public void shouldReturnYAxisValue() {
         assertEquals(8,gameBoard.get_y_axis());
     }
+
+    @Test
+    public void shouldUpdateXAxisWithNewValue() {
+        gameBoard.set_x_axis(10);
+        assertEquals(10,gameBoard.get_x_axis());
+    }
 }
