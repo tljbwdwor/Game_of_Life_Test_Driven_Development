@@ -237,4 +237,9 @@ public class GameBoardTest {
     public void shouldReturnXAxisValue() {
         assertEquals(5,gameBoard.get_x_axis());
     }
+
+    @Test
+    public void shouldReturnYAxisValue() {
+        assertEquals(8,gameBoard.get_y_axis());
+    }
 }
