@@ -23,6 +23,10 @@ public class GameBoard {
         this.x_axis = x;
     }
 
+    public void set_y_axis(int y) {
+        this.y_axis = y;
+    }
+
     public String print_board_in_console() {
         String output = "";
         for (int y = 0; y < y_axis; y++) {
