@@ -1,8 +1,10 @@
 package com.tlj;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class JavaFxSceneBuilder extends VBox {
 
@@ -30,5 +32,21 @@ public class JavaFxSceneBuilder extends VBox {
         this.getChildren().addAll(this.generationButton, this.clearButton, this.canvas);
 
         this.gameBoard = new GameBoard(40,40);
+    }
+
+    public void showGameBoard() {
+        GraphicsContext graphics = this.canvas.getGraphicsContext2D();
+
+        graphics.setFill(Color.DARKGRAY);
+        graphics.fillRect(0, 0, 600, 600);
+
+        graphics.setFill(Color.GREENYELLOW);
+        for (int x = 0; x < gameBoard.x_axis; x++) {
+            for (int y = 0; y < gameBoard.y_axis; y++) {
+                if (this.gameBoard.get_cell_state(x,y) == 1) {
+                    graphics.fillRect(x, y, 1, 1);
+                }
+            }
+        }
     }
 }
