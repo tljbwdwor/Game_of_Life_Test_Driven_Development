@@ -232,4 +232,9 @@ public class GameBoardTest {
         assertEquals(0,gameBoard.get_cell_state(3,2));
         assertEquals(0,gameBoard.get_cell_state(3,3));
     }
+
+    @Test
+    void shouldReturnXAxisValue() {
+        gameBoard.get_board_width();
+    }
 }
