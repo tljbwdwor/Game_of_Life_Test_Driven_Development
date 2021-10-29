@@ -19,6 +19,10 @@ public class GameBoard {
         return this.y_axis;
     }
 
+    public void set_x_axis(int x) {
+        this.x_axis = x;
+    }
+
     public String print_board_in_console() {
         String output = "";
         for (int y = 0; y < y_axis; y++) {
