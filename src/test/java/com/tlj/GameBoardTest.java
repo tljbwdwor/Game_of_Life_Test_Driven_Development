@@ -234,7 +234,7 @@ public class GameBoardTest {
     }
 
     @Test
-    void shouldReturnXAxisValue() {
-        gameBoard.get_board_width();
+    public void shouldReturnXAxisValue() {
+        assertEquals(5,gameBoard.get_x_axis());
     }
 }

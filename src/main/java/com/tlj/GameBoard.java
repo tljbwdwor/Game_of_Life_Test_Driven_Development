@@ -11,6 +11,10 @@ public class GameBoard {
         this.cell = new int[x_axis][y_axis];
     }
 
+    public int get_x_axis() {
+        return this.x_axis;
+    }
+
     public String print_board_in_console() {
         String output = "";
         for (int y = 0; y < y_axis; y++) {
