@@ -21,8 +21,14 @@ public class JavaFxSceneBuilder extends VBox {
     private Affine affine;
     private TextField textFieldX;
     private TextField textFieldY;
+    public int canvasSizeX = 600;
+    public int canvasSizeY = 600;
 
     public JavaFxSceneBuilder() {
+
+        this.canvas = new Canvas(canvasSizeX, canvasSizeY);
+        this.canvas.setOnMousePressed(this::set_cell_to_alive);
+        this.canvas.setOnMouseDragged(this::set_cell_to_alive);
 
         generationButton = new Button("Evolve!");
         generationButton.setStyle("-fx-background-color: #9af086; ");
@@ -39,35 +45,59 @@ public class JavaFxSceneBuilder extends VBox {
         });
 
         textFieldX = new TextField();
-        textFieldX.setPromptText("New x-axis value between 1 and 40.");
+        textFieldX.setPromptText("New x-axis value between 1 and 100.");
 
         textFieldY = new TextField();
-        textFieldY.setPromptText("New y-axis value between 1 and 40.");
+        textFieldY.setPromptText("New y-axis value between 1 and 100.");
 
-        setSizeButton = new Button("Set board size");
-        setSizeButton.setStyle("-fx-background-color: #71BFEE");
-        this.setSizeButton.setOnAction(actionEvent -> {
-            int new_x_axis = Integer.parseInt(textFieldX.getText());
-            int new_y_axis = Integer.parseInt(textFieldY.getText());
-            gameBoard.set_x_axis(new_x_axis);
-            gameBoard.set_y_axis(new_y_axis);
-            gameBoard.clear_board();
-            show_game_board();
-        });
-
-        this.canvas = new Canvas(600, 600);
-        this.canvas.setOnMousePressed(this::set_cell_to_alive);
-        this.canvas.setOnMouseDragged(this::set_cell_to_alive);
-
-        this.getChildren().addAll(this.generationButton, this.clearButton, this.setSizeButton,
-                this.textFieldX, this.textFieldY, this.canvas);
-
-        this.gameBoard = new GameBoard(40, 40);
+        this.gameBoard = new GameBoard(100, 100);
         float x_value = gameBoard.x_axis;
         float y_value = gameBoard.y_axis;
 
         this.affine = new Affine();
         this.affine.appendScale(600 / x_value, 600 / y_value);
+
+        setSizeButton = new Button("Set board size");
+        setSizeButton.setStyle("-fx-background-color: #71BFEE");
+        this.setSizeButton.setOnAction(actionEvent -> {
+            gameBoard.clear_board();
+            int new_x_axis = Integer.parseInt(textFieldX.getText());
+            int new_y_axis = Integer.parseInt(textFieldY.getText());
+            gameBoard.set_x_axis(new_x_axis);
+            gameBoard.set_y_axis(new_y_axis);
+            set_scale(new_x_axis, new_y_axis);
+            show_game_board();
+        });
+
+        this.getChildren().addAll(this.generationButton, this.clearButton, this.setSizeButton,
+                this.textFieldX, this.textFieldY, this.canvas);
+    }
+
+    public void set_canvas_size(int x, int y) {
+        if (x < y) {
+            this.canvas.setWidth((x * 6) * 2);
+        } else
+            if (x > y) {
+                this.canvas.setHeight((y * 6) * 2);
+            }
+    }
+
+    public void set_scale(int grid_size_x, int grid_size_y) {
+        if (grid_size_x == grid_size_y) {
+            this.affine.appendScale((this.canvas.getWidth() / 6) / (float) grid_size_x,
+                    (this.canvas.getHeight() / 6) / (float) grid_size_y);
+        } else
+            if (grid_size_x > grid_size_y) {
+                this.affine.appendScale((this.canvas.getWidth() / 6) / (float) grid_size_x,
+                        (this.canvas.getWidth() / 6) / (float) grid_size_x);
+                set_canvas_size(grid_size_x, grid_size_y);
+            }
+            else
+                {
+                    this.affine.appendScale((this.canvas.getWidth() / 6) / (float) grid_size_y,
+                            (this.canvas.getWidth() / 6) / (float) grid_size_y);
+                    set_canvas_size(grid_size_x, grid_size_y);
+                }
     }
 
     public void set_cell_to_alive(MouseEvent event) {
