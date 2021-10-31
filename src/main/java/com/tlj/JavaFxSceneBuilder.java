@@ -62,7 +62,7 @@ public class JavaFxSceneBuilder extends VBox {
         this.getChildren().addAll(this.generationButton, this.clearButton, this.setSizeButton,
                 this.textFieldX, this.textFieldY, this.canvas);
 
-        this.gameBoard = new GameBoard(40,40);
+        this.gameBoard = new GameBoard(40, 40);
         float x_value = gameBoard.x_axis;
         float y_value = gameBoard.y_axis;
 
