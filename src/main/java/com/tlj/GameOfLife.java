@@ -1,11 +1,11 @@
 package com.tlj;
 
-public class GameBoard {
+public class GameOfLife {
     int[][] cell;
     int x_axis;
     int y_axis;
 
-    public GameBoard(int x_axis, int y_axis) {
+    public GameOfLife(int x_axis, int y_axis) {
         this.x_axis = x_axis;
         this.y_axis = y_axis;
         this.cell = new int[x_axis][y_axis];
@@ -99,7 +99,7 @@ public class GameBoard {
         return output;
     }
 
-    public void evolve() {
+    public void evolve_to_next_generation() {
         int[][] newGeneration = new int[x_axis][y_axis];
 
         for (int y = 0; y < y_axis; y++) {
