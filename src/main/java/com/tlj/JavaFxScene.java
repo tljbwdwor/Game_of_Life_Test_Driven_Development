@@ -13,12 +13,13 @@ import javafx.scene.transform.NonInvertibleTransformException;
 
 public class JavaFxScene extends VBox {
 
-    private final TextField textFieldX;
-    private final TextField textFieldY;
-
     private final Canvas canvas;
     public int defaultCanvasSizeX = 600;
     public int defaultCanvasSizeY = 600;
+
+    private final TextField textFieldX;
+    private final TextField textFieldY;
+
     private final Affine affine;
 
     private final GameOfLife gameOfLife;
