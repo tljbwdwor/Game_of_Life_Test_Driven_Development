@@ -36,9 +36,8 @@ public class Console {
     }
 
     public static int obtain_number_of_live_cells_from_user_input() {
-        int live_cells;
         System.out.println("How many live cells would you like to start with?");
-        return live_cells = scanner.nextInt();
+        return scanner.nextInt();
     }
 
     public static void set_cell_status_to_alive_in_console() {
